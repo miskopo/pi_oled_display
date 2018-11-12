@@ -8,4 +8,6 @@ class CurrentTemperature:
         self.temp_ctl = TemperatureController()
 
     def __str__(self):
-        return ""
+        thermometer = u"\U0001F321"
+        temperature = self.temp_ctl.read_temperature()
+        return "{symbol}{value}".format(symbol=thermometer, value=temperature)
