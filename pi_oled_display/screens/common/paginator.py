@@ -1,7 +1,9 @@
 class Paginator:
+    __slots__ = '_number_of_pages', '_current_page'
+
     def __init__(self, number_of_pages):
         self._number_of_pages = number_of_pages
-        self._current_page = 0
+        self._current_page = 1
 
     @property
     def current_page(self):
@@ -23,8 +25,8 @@ class Paginator:
             raise AttributeError("Total number of pages can't be less then 1")
 
     def __str__(self):
-        full_circle = u"\u25CF"
-        empty_circle = u"\u25CB"
+        full_circle = u"\u25CF"  # ●
+        empty_circle = u"\u25CB"  # ○
         return "{}{}{}".format(
             self.number_of_pages - ((self.number_of_pages - self.current_page) - 1) * empty_circle,
             full_circle,
