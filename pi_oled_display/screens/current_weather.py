@@ -8,7 +8,11 @@ class CurrentWeather:
         self.url = "http://wttr.in/"
         self.city = city
 
-    def obtain_weather(self):
+    def obtain_weather(self) -> str:
+        """
+
+        :return:
+        """
         try:
             with get("{}{}".format(self.url, self.city if not None else "")) as response:
                 if response.ok:
