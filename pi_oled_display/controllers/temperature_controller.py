@@ -1,3 +1,7 @@
+from sh import ls, ErrorReturnCode_2
+from logger import logger
+
+
 class TemperatureController:
     __slots__ = '_temperature'
 
@@ -15,6 +19,11 @@ class TemperatureController:
         self._temperature = value
 
     def read_temperature(self):
-        # TODO: Implement
+        try:
+            wire_devices = ls("/sys/bus/w1/devices")
+
+        except ErrorReturnCode_2:
+            logger.error("Path for wire devices doesn't exist")
+            return "Enable to read temperature"
         self.temperature = 12
         return self.temperature
