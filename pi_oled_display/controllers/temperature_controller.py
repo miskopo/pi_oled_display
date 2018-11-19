@@ -1,4 +1,6 @@
 from sh import ls, ErrorReturnCode_2
+
+from decorators import logged
 from logger import logger
 
 
@@ -18,6 +20,7 @@ class TemperatureController:
             raise AttributeError("Temperature readout can't be below Absolute Zero")
         self._temperature = value
 
+    @logged
     def read_temperature(self):
         try:
             wire_devices = ls("/sys/bus/w1/devices")

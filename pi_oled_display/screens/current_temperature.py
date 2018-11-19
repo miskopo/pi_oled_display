@@ -1,4 +1,4 @@
-from pi_oled_display.controllers.temperature_controller import TemperatureController
+from pi_oled_display.controllers import TemperatureController
 
 
 class CurrentTemperature:
